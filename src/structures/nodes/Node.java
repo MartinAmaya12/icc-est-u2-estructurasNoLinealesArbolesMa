@@ -1,4 +1,4 @@
-package structures;
+package structures.nodes;
 
 public class Node<T> {
      private T value;
