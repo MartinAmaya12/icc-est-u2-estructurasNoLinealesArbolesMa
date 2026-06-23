@@ -1,33 +1,24 @@
 import structures.trees.BinaryTree;
 import structures.trees.Ejercicio1;
 import structures.trees.Ejercicio2;
+
 public class App {
     public static void main(String[] args) throws Exception {
         //runIntTree();
         //runIntComparativaPesos();
-        //runEjercicio1();
-        runEjercicio2();
-    }
-
-    private static void runEjercicio1() {
+        int[] numeros = {5,3,7,2,4,6,8};
         Ejercicio1 ejercicio1 = new Ejercicio1();
-        int[] numeros = {5, 3, 7, 2, 4, 6, 8};
         ejercicio1.insert(numeros);
 
-        
-        
-        
-    }
-
-    private static void runEjercicio2() {
         Ejercicio2 ejercicio2 = new Ejercicio2();
-        int[] numeros = {5, 3, 7, 2, 4, 6, 8};
         BinaryTree<Integer> tree = new BinaryTree<>();
-        for (int num : numeros) {
-            tree.insert(num);
+        for(int numero : numeros){
+            tree.insert(numero);
         }
         ejercicio2.invert(tree.getRoot());
     }
+
+    
 }
     /*private static void runIntTree() {
         IntTree arbolNumeros = new IntTree(); /// CLASE ARBOL

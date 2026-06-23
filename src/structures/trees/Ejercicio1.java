@@ -3,30 +3,29 @@ package structures.trees;
 import structures.nodes.Node;
 
 public class Ejercicio1{
-    private Node<Integer> root;
+    
     public void insert(int[] numeros){
         BinaryTree<Integer> tree = new BinaryTree<>();
-        for (int num : numeros) {
-            tree.insert(num);
+
+        for(int numero : numeros){
+            tree.insert(numero);
         }
         printTree(tree.getRoot());
     }
 
-
-    public void printTree(Node<Integer> root){
-        System.out.println("\nImpriendo el arbol: ");
-        printRecursivo(root,0);
+    private void printTree(Node<Integer> root) {
+        System.out.println("\nImprimiendo el arbol: ");
+        printTreeRecursive(root, 0);
     }
-
-
-    private void printRecursivo(Node<Integer> root2, int i) {
-        if(root2 != null){
-            printRecursivo(root2.getRight(), i + 1);
-            for (int j = 0; j < i; j++) {
-                System.out.print("   ");
-            }
-            System.out.println(root2.getValue());
-            printRecursivo(root2.getLeft(), i + 1);
+    private void printTreeRecursive(Node<Integer> current, int nivel){
+        if(current == null){
+            return;
         }
+        printTreeRecursive(current.getRight(), nivel + 1);
+        for( int i = 0; i < nivel; i++){
+            System.out.print("\t");
+        }
+        System.out.println(current.getValue());
+        printTreeRecursive(current.getLeft(), nivel + 1);
     }
 }
