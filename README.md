@@ -10,6 +10,9 @@
 ## 1. icc-est-u2-estructurasnoLinealesMa
 ![alt text](assets/cap2.png)
 
-**Descripción:** [Explicar qué muestra esta captura o que desarrollo en clases]
+**Descripción:** 
+
+
+
 
 
