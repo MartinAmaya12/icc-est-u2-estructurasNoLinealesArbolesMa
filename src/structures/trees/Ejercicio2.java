@@ -2,8 +2,8 @@ package structures.trees;
 
 import structures.nodes.Node;
 
-public class Ejercicio2 {
-    public Node<Integer> invert(Node<Integer> root){
+public class Ejercicio2<T> {
+    public Node<T> invert(Node<T> root){
      
         invertRecursively(root);
 
@@ -12,12 +12,12 @@ public class Ejercicio2 {
         return root;
     }
 
-    private void invertRecursively(Node<Integer> root) {
+    private void invertRecursively(Node<T> root) {
         if(root == null){
             return;
         }
 
-        Node<Integer> temp = root.getLeft();
+        Node<T> temp = root.getLeft();
         root.setLeft(root.getRight());
         root.setRight(temp);
 
@@ -25,12 +25,12 @@ public class Ejercicio2 {
         invertRecursively(root.getRight());
     }
 
-    private void printTree(Node<Integer> root) {
+    private void printTree(Node<T> root) {
         System.out.println("Imprimiendo el arbol: ");
         printTreeRecursive(root, 0);
     }
 
-    private void printTreeRecursive(Node<Integer> current, int nivel) {
+    private void printTreeRecursive(Node<T> current, int nivel) {
         if(current == null){
             return;
         }

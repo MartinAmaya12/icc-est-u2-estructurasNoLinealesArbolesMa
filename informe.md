@@ -54,7 +54,7 @@ Y por ultimo, este metodo se encarga de imprimir un arbol binario usando el nive
 # Ejercicio 2
 
 ```
-public Node<Integer> invert(Node<Integer> root){
+public Node<T> invert(Node<T> root){
      
         invertRecursively(root);
 
@@ -67,12 +67,12 @@ public Node<Integer> invert(Node<Integer> root){
 Este metodo convierte un arbol binario al reves, es decir lo invierte, lo hace llamando a un metodo recursivo que cambia la rama izquierda y derecha. procede a imprimir el arbol invertido y finaliza devolviendo la raiz de este arbol al reves.
 
 ```
-private void invertRecursively(Node<Integer> root) {
+ private void invertRecursively(Node<T> root) {
         if(root == null){
             return;
         }
 
-        Node<Integer> temp = root.getLeft();
+        Node<T> temp = root.getLeft();
         root.setLeft(root.getRight());
         root.setRight(temp);
 
@@ -84,7 +84,7 @@ private void invertRecursively(Node<Integer> root) {
 Este metodo invierte el arbol binario ya que cambia a los subarboles izquierdo y derecho de cada nodo. si es null hace un return y acaba, pero si es diferente de null guarda al izquierdo en una variable temporal, luego se asigna al derecho en el izquierdo y al ultimo se pone al temporal en el derecho y asi se realiza el cambio de izquiera a derecha y viceversa.
 
 ```
-private void printTree(Node<Integer> root) {
+private void printTree(Node<T> root) {
         System.out.println("Imprimiendo el arbol: ");
         printTreeRecursive(root, 0);
     }
@@ -93,7 +93,7 @@ private void printTree(Node<Integer> root) {
 Este metodo como en el anterior ejercicio lo que hace es iniciar la impresion del arbol. Imprime un mensaje dando a entender que esta yendo a mostrar el arbol y seguido llama al metodo que imprime recursivamente, y envia la raiz y el nivel
 
 ```
- private void printTreeRecursive(Node<Integer> current, int nivel) {
+ private void printTreeRecursive(Node<T> current, int nivel) {
         if(current == null){
             return;
         }
@@ -114,6 +114,76 @@ Este ejercicio acaba con este metodo que hace la impresion del arbol como antes 
 ### Salida en consola
 
 ![alt text](assets/cap6.png)
+
+
+# Ejercicio 3
+```
+public List<List<Node<T>>> listLevels(Node<T> root) {
+        List<List<Node<T>>> resultado = new ArrayList<>();
+
+        if (root == null) {
+            return resultado;
+        }
+
+        Queue<Node<T>> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Node<T>> level = new LinkedList<>();
+
+            for (int i = 0; i < size; i++) {
+                Node<T> actual = queue.poll();
+                level.add(actual);
+
+                if (actual.getLeft() != null) {
+                    queue.offer(actual.getLeft());
+                }
+
+                if (actual.getRight() != null) {
+                    queue.offer(actual.getRight());
+                }
+            }
+
+            resultado.add(level);
+        }
+
+        return resultado;
+    }
+
+```
+Este metodo junta todos los nodos de un arbol y los separa dependiendo el nivel de profundidad que tengan. Primero verifica si la raiz es nulla, sino usa una cola para procesar los nodos.
+
+### Salida en consola
+![alt text](assets/cap7.png)
+
+
+# Ejercicio 4
+```
+ public int maxDepth(Node<T> root){
+        return alturaRecursivo(root);
+    }
+
+```
+En este metodo se usa para hacer el calculo de profundidad maxima de un arbol binario. Recibe el nodo raiz y llama al metodo siguiente alturaRecursivo, que devuelve un numero que se calcula aqui internamente.
+
+```
+
+private int alturaRecursivo(Node<T> actual){
+        if(actual == null)
+            return 0;
+        int alturaIzquierda = alturaRecursivo(actual.getLeft());
+        int alturaDerecha = alturaRecursivo(actual.getRight());
+
+        return Math.max(alturaIzquierda, alturaDerecha)+1;
+
+    }
+
+```
+Y por ultimo, este metodo determina la altura de un arbol usando la recursividad, si el nodo raiz es igual a nulo entonces retorna 0, sino es el caso, realiza llamadas recursivas para calcular la altura del subarbol izquierdo y derecho. Como ultimo paso, se usa la funcion Math.max para comparar ambas alturas, selecciona la rama mas profunda y le suma 1, y retorna este numero o valor hacia los niveles superiores.
+
+### Salida en consola
+![alt text](assets/cap8.png)
 
 
 

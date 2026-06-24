@@ -1,21 +1,38 @@
 import structures.trees.BinaryTree;
 import structures.trees.Ejercicio1;
 import structures.trees.Ejercicio2;
+import structures.trees.Ejercicio3;
+import structures.trees.Ejercicio4;
 
 public class App {
     public static void main(String[] args) throws Exception {
         //runIntTree();
         //runIntComparativaPesos();
+        System.err.println("\nEjercicio 1:");
         int[] numeros = {5,3,7,2,4,6,8};
         Ejercicio1 ejercicio1 = new Ejercicio1();
         ejercicio1.insert(numeros);
 
-        Ejercicio2 ejercicio2 = new Ejercicio2();
+        System.out.println("Ejercicio 2:");
+        Ejercicio2<Integer> ejercicio2 = new Ejercicio2<Integer>();
         BinaryTree<Integer> tree = new BinaryTree<>();
-        for(int numero : numeros){
-            tree.insert(numero);
+        BinaryTree<Integer> tree2 = new BinaryTree<>();
+        for(int numEjm : numeros){
+            tree.insert(numEjm);
+            tree2.insert(numEjm);
         }
-        ejercicio2.invert(tree.getRoot());
+        ejercicio2.invert(tree2.getRoot());
+
+        Ejercicio3<Integer> levels = new Ejercicio3<>();
+        System.out.println("Ejercicio 3:");
+        System.out.println("Niveles del arbol:");
+        System.out.println(levels.listLevels(tree.getRoot()));
+
+        System.out.println("Ejercicio 4:");
+        Ejercicio4<Integer> ejercicio4 = new Ejercicio4<Integer>();
+        System.out.println("Profundidad máxima del arbol " + ejercicio4.maxDepth(tree.getRoot()));
+
+
     }
 
     
