@@ -1,6 +1,8 @@
+import java.util.Set;
+
 import collections.maps.Maps;
 import collections.sets.Sets;
-import java.util.Set;
+import structures.graphs.Graph;
 import structures.models.Contacto;
 
 public class App {
@@ -32,7 +34,27 @@ public class App {
         System.out.println("Profundidad máxima del arbol " + ejercicio4.maxDepth(tree.getRoot()));*/
 
         //runSets();
-        runMaps();
+        //runMaps();
+        runGraph();
+    }
+
+    private static void runGraph() {
+        Graph<String> g = new Graph<>();
+        g.add("A");
+        g.add("B");
+        g.add("C");
+        g.add("D");
+        g.add("E");
+        g.add("J");
+        g.addEdge("A", "B");
+        g.addEdge("C", "D");
+        
+
+        g.addEdgeUni("C", "D");
+
+        g.printGraph();
+        
+        
     }
 
     private static void runMaps() {

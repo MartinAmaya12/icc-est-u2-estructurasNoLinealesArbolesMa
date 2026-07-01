@@ -45,5 +45,15 @@ Creamos dos clases uno llamado Set y otro Contacto, en Sets, se analizo y aprend
 
 Se creo la clase Maps, Se realizo su creacion de metodos para construir tanto un HashMap como un TreeHashMap, y a parte de un coLinkedHashMap
 
+- **Nombre:** Martin Amaya
+- **Curso:** grupo 3
+- **Fecha:** 01/07/2026
+
+## Graphs
+
+**Descripcion**
+
+Se creo la clase Graph, se realizo un metodo en el cual 
+
 
 
